@@ -21,22 +21,4 @@ const otpSchema = new mongoose.Schema(
 
 
 
-// function to send email
-async function sendVerificationEmail (email, otp){
-    try {
-        const mailResponse = await mailSender(email, "Verification email from CodeCraft", otp);
-        console.log("Email sent successfully: ", mailResponse);
-        
-    } catch (error) {
-        console.log("Error occurred while sending mail ", error);
-    }
-}
-
-
-otpSchema.pre("save", async function (next){
-    await sendVerificationEmail(this.email, this.otp);
-    next();
-})
-
-
 module.exports = mongoose.model("OTP", otpSchema);

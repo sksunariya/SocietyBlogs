@@ -47,10 +47,10 @@ function Loginform () {
 
           <label className='w-full'>
             <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>
-              Email address <sup className=' text-pink-200'>*</sup>
+              Email address <sup className=' text-red-800'>*</sup>
             </h2>
             <input
-              className='bg-gray-700 text-black w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+              className='bg-gray-700 focus:outline-none text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
               type='email'
               name='email'
               placeholder='Enter email address'
@@ -61,30 +61,30 @@ function Loginform () {
           </label>
 
           <label className='w-full relative'>
-            <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>Password <sup className=' text-pink-200 scale-150'>*</sup></h2>
+            <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>Password <sup className=' text-red-800 scale-150'>*</sup></h2>
 
             <input
-              className='bg-gray-700 text-black w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+              className='bg-gray-700  focus:outline-none text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
               type={showPassword ? 'text' : 'password'}
               name='password'
               placeholder='Enter Password'
               value={formData.password}
               onChange={changeHandler}
             />
-            <div className='absolute text-black right-3 bottom-2.5 scale-125'>
+            <div className='absolute text-white right-3 bottom-2.5 scale-125'>
               {showPassword ? (<BiSolidShow onClick={showHandler}/>) : (<BiSolidHide onClick={showHandler}/>)}
             </div>
             
           </label>
 
           <Link to="/forgotPassword">
-            <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+            <p className="mt-1 ml-auto max-w-max text-xs text-[#47A5C5]">
               Forgot Password
             </p>
           </Link>
 
 
-          <button type='submit' className='w-full p-1.5 mb-5 text-black bg-caribbeangreen-400 rounded-[0.55rem] '>
+          <button type='submit' className='w-full p-1.5 mb-5 text-black bg-[#049069] rounded-[0.55rem] '>
             Log In
           </button>
 

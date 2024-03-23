@@ -32,13 +32,16 @@ exports.createBlog = async (req, res) => {
 
         const tagArray = tags.split(' ');
 
+        const currentTime = new Date();
+        const createdTime = currentTime.toUTCString();
+
         // create Blog
         const createdBlog = await Blog.create({
             title,
             description,
             category,
             tags: tagArray,
-            createdAt: Date.now(),
+            createdAt: createdTime,
             creater: userDetails._id,
         })
 
@@ -141,7 +144,6 @@ exports.deleteBlog = async (req, res) => {
     try {
         // fetch blog Id
         const {blogId} = req.body;
-        // const blogId = blog._id;
         console.log("blog id in deleteblog in blog controller", blogId)
         // if (!blogId) {
         //     return res.status(503).json({
@@ -154,13 +156,13 @@ exports.deleteBlog = async (req, res) => {
         
         // fetch user details from the user Id
         const userDetails = await User.findById(userId);
-        console.log("User details in update blog in blog controller.", userDetails);
+        // console.log("User details in update blog in blog controller.", userDetails);
 
         const blogDetails = await Blog.findById(blogId);
-        console.log("blog details in update blog in blog controller.", blogDetails);
+        // console.log("blog details in update blog in blog controller.", blogDetails);
 
-        console.log("blog creater: ", blogDetails.creater)
-        console.log("user id" , userDetails._id)
+        // console.log("blog creater: ", blogDetails.creater)
+        // console.log("user id" , userDetails._id)
         if (!blogDetails.creater.equals(userDetails._id)) {
             return res.status(503).json({
                 success: false,

@@ -11,16 +11,18 @@ const mailSender = async (email, title, body) => {
         })
 
         let info = await transporter.sendMail({
-            from: "CodeCraft",
+            from: "SocietyBlogs",
             to: `${email}`,
             subject: `${title}`,
             html: `${body}`
         })
         console.log(info);
-        return info;
+        return {success: true, info};
         
     } catch (error) {
         console.log("Error occurred while sending mail ", error);
+        return {success: false,
+                message: "Error occurred while Sending mail."}
     }
 }
 

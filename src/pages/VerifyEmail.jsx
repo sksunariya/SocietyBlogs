@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
-import { Link } from "react-router-dom";
-import { BiArrowBack } from "react-icons/bi";
 import { RxCountdownTimer } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { sendOtp, signUp } from "../services/apiLinks/authAPI";
@@ -18,32 +16,13 @@ function VerifyEmail() {
     if (!signupData) {
       navigate("/signup");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleVerifyAndSignup = (e) => {
     e.preventDefault();
-    const {
-      accountType,
-      firstName,
-      lastName,
-      email,
-      password,
-      confirmPassword,
-    } = signupData;
+    const {accountType, firstName, lastName, email, password, confirmPassword} = signupData;
 
-    dispatch(
-      signUp(
-        accountType,
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword,
-        otp,
-        navigate
-      )
-    );
+    dispatch( signUp(accountType, firstName, lastName, email, password, confirmPassword, otp, navigate) );
   };
 
   return (
@@ -54,11 +33,8 @@ function VerifyEmail() {
         </div>
       ) : (
         <div className="max-w-[500px] p-4 lg:p-8">
-          <h1 className="text-richblack-5 font-semibold text-[1.875rem] leading-[2.375rem]">
-            Verify Email
-          </h1>
-          <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">
-            A verification code has been sent to you. Enter the code below
+          <p className="text-[1.125rem] max-w-[250px] leading-[1.625rem] my-4 text-[#AFB2BF]">
+            Enter the OTP recieved on registered email.
           </p>
           <form onSubmit={handleVerifyAndSignup}>
             <OtpInput
@@ -72,7 +48,7 @@ function VerifyEmail() {
                   style={{
                     boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                   }}
-                  className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
+                  className="w-[36px] sm:w-[36px] md:w-[48px]  lg:w-[60px] border-0 bg-[#161D29] rounded-[0.5rem] text-white aspect-square text-center focus:border-0 focus:outline-2 focus:outline-[#FFE83D]"
                 />
               )}
               containerStyle={{
@@ -80,27 +56,24 @@ function VerifyEmail() {
                 gap: "0 6px",
               }}
             />
-            <button
-              type="submit"
-              className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
-            >
-              Verify Email
+
+
+            <div className="mt-6 flex justify-end">
+
+              <div className="flex items-center text-[#47A5C5] gap-x-2"
+                onClick={() => dispatch(sendOtp(signupData.email))}
+              >
+                <RxCountdownTimer />
+                Resend OTP
+              </div>
+            </div>
+
+
+            <button type='submit' className='w-full mt-4 p-1.5 mb-5 text-black bg-[#049069] rounded-[0.55rem] '>
+                Submit
             </button>
           </form>
-          <div className="mt-6 flex items-center justify-between">
-            <Link to="/signup">
-              <p className="text-richblack-5 flex items-center gap-x-2">
-                <BiArrowBack /> Back To Signup
-              </p>
-            </Link>
-            <button
-              className="flex items-center text-blue-100 gap-x-2"
-              onClick={() => dispatch(sendOtp(signupData.email))}
-            >
-              <RxCountdownTimer />
-              Resend it
-            </button>
-          </div>
+
         </div>
       )}
     </div>

@@ -16,7 +16,7 @@ export function createBlog (title, description, category, tags, navigate, token)
             const response = await apiConnector("POST", CREATEBLOG_API, {title, description, category, tags},{
                 "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${token}`,
-              })
+            })
 
             console.log("Response obtained from createBlog api", response);
 
@@ -24,7 +24,7 @@ export function createBlog (title, description, category, tags, navigate, token)
                 throw new Error(response.data.message)
             }
             toast.success("Blog created successfully.")
-            navigate('/dashboard/my-profile')
+            navigate('/blog/userBlogs')
             
         } catch (error) {
             console.log("Error in createBlog API", error);
@@ -83,7 +83,7 @@ export function userBlogsApi (navigate, token) {
             
         } catch (error) {
             console.log("Error in SHOW ALL Blog API", error);
-            navigate('/dashboard/my-profile');
+            // navigate('/dashboard');
         }
         dispatch(setLoading(false))
     }
@@ -142,7 +142,7 @@ export function deleteBlogApi (blogId, navigate, token) {
                 throw new Error(response.data.message)
             }
             toast.success("Blog deleted successfully.")
-            navigate('/dashboard/my-profile')
+            navigate('/dashboard')
             
         } catch (error) {
             console.log("Error in deleteBlog API", error);

@@ -28,12 +28,12 @@ const CreateBlog = () => {
 
         <form onSubmit={submitHandler} className='my-10 md:border-[1px] border-white border-opacity-40 rounded-lg mx-5 md:py-16 md:px-10 lg:px-16 max-w-3xl w-11/12 flex flex-col gap-10'>
 
-            <h1 className='text-white font-bold  text-4xl'>Publish Your  <span className="bg-gradient-to-b from-[#1f75ff] via-[#12D8FA] to-[#1f2f25] text-transparent bg-clip-text font-bold">Thoughts </span> in your way</h1>
+            <h1 className='text-white font-bold  text-4xl'>Publish Your  <span className="bg-gradient-to-b from-[#1f75ff] via-[#12D8FA] to-[#1f2f25] text-[#ffffff00] bg-clip-text font-bold">Thoughts </span> in your way</h1>
 
             <label className='w-full'>
-                <h2 className='text-white mb-2 ml-1 text-lg'>Title <sup className=' text-pink-200'>*</sup></h2>
+                <h2 className='text-white mb-2 ml-1 text-lg'>Title <sup className=' text-red-800'>*</sup></h2>
 
-                <input className='text-white w-full focus:outline-none label-shadow bg-richblack-600 py-3 px-6 border-b-2 border-opacity-30 shadow-lg p-[6px] border-white rounded-lg'
+                <input className='text-white w-full focus:outline-none label-shadow bg-[#585D69] py-3 px-6 border-b-2 border-opacity-30 shadow-lg p-[6px] border-white rounded-lg'
                     type='text'
                     name='title'
                     placeholder='Enter Title of your blog'
@@ -49,7 +49,7 @@ const CreateBlog = () => {
             <label className='w-full'>
                 <h2 className='text-white mb-2 ml-1 text-lg'>Category of Your Blog</h2>
 
-                <input className=' bg-richblack-500 py-3 px-6 text-white w-full  focus:outline-none label-shadow bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+                <input className=' bg-[#585D69] py-3 px-6 text-white w-full  focus:outline-none label-shadow bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
                     type='text'
                     name='category'
                     placeholder='Enter Category of Blog'
@@ -64,7 +64,7 @@ const CreateBlog = () => {
             <label className='w-full'>
                 <h2 className='text-white mb-1 ml-1 text-lg'>Tags of Your Blog <span className='text-sm'>(keep space between two tags, No need to keep # sign)</span> </h2>
 
-                <input className=' bg-richblack-500 py-3 px-6 focus:outline-none label-shadow text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+                <input className=' bg-[#585D69] py-3 px-6 focus:outline-none label-shadow text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
                     type='text'
                     name='tags'
                     placeholder='Enter Tags'
@@ -77,9 +77,9 @@ const CreateBlog = () => {
 
 
             <label className='w-full'>
-                <h2 className='text-white mb-1 ml-1 text-lg'>Description <sup className=' text-pink-200'>*</sup></h2>
+                <h2 className='text-white mb-1 ml-1 text-lg'>Description <sup className=' text-red-800'>*</sup></h2>
 
-                <textarea className=' bg-richblack-500 text-white py-3 px-6  focus:outline-none label-shadow w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+                <textarea className=' bg-[#585D69] text-white py-3 px-6  focus:outline-none label-shadow w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
                     type='text'
                     name='description'
                     cols="30"
@@ -95,7 +95,7 @@ const CreateBlog = () => {
 
 
 
-            <button type='submit' className='w-full py-3 px-6 mb-5 text-black bg-caribbeangreen-400 rounded-[0.55rem] '>
+            <button type='submit' className='w-full py-3 px-6 mb-5 text-black bg-[#049069] rounded-[0.55rem] '>
                 Create Blog
             </button>
 

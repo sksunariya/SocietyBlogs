@@ -7,7 +7,7 @@ const Login = () => {
 
       <div className='flex flex-col  w-11/12 max-w-[450px]'>
 
-          <h1 className='text-white font-semibold text-[1.65rem] pt-20 leading-[2.375rem]'>Welcome Back</h1>
+          <h1 className='text-white font-semibold text-[1.65rem] pt-20 leading-[2.375rem]'>Log In to SocietyBlogs</h1>
 
           <Loginform/>
 
