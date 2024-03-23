@@ -1,8 +1,7 @@
 import { useState } from "react"
-import { BiArrowBack } from "react-icons/bi"
 import { BiSolidShow , BiSolidHide } from 'react-icons/bi';
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import OtpInput from "react-otp-input";
 import toast from "react-hot-toast";
 
@@ -21,7 +20,6 @@ function ForgotPassword () {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [emailSent, setEmailSent] = useState(false)
     const dispatch = useDispatch()
-    const { loading } = useSelector((state) => state.auth)
 
 
     function passHandler() {
@@ -40,7 +38,7 @@ function ForgotPassword () {
             dispatch(sendOtp(email, navigate, true, setEmailSent))          
         }
         else {
-            if (password != confirmPassword){
+            if (password !== confirmPassword){
                 toast.error("Password doesn't match.");
             }
             else{

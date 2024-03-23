@@ -115,7 +115,7 @@ const Navbar = () => {
                             <Link to={'/dashboard'}>
                                 <div onClick={navHandler} className='flex -ml-14 py-3 gap-6 items-center border-b-2 border-white border-opacity-40'>
                                 
-                                    <img width={30} height={30} className='rounded-full' src={userImage} alt='profile-picture'/>
+                                    <img width={30} height={30} className='rounded-full' src={userImage} />
                                     
                                     <div className='text-lg text-white'>
                                         {userFirstName} {userLastName}
