@@ -14,11 +14,10 @@ export function createBlog (title, description, category, tags, navigate, token)
         dispatch(setLoading(true))
         try {
             const response = await apiConnector("POST", CREATEBLOG_API, {title, description, category, tags},{
-                "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${token}`,
             })
 
-            console.log("Response obtained from createBlog api", response);
+            // console.log("Response obtained from createBlog api", response);
 
             if (!response.data.success){
                 throw new Error(response.data.message)
@@ -27,7 +26,7 @@ export function createBlog (title, description, category, tags, navigate, token)
             navigate('/blog/userBlogs')
             
         } catch (error) {
-            console.log("Error in createBlog API", error);
+            // console.log("Error in createBlog API", error);
             toast.error("Blog creation Failed.")
             navigate('/')
         }
@@ -45,7 +44,7 @@ export function showAllBlogs () {
         try {
             const response = await apiConnector("GET", SHOWALLBLOGS_API,)
 
-            console.log("Response obtained from SHOWALLBLOGS api", response.data.allBlogs);
+            // console.log("Response obtained from SHOWALLBLOGS api", response.data.allBlogs);
 
             if (!response.data.success){
                 throw new Error(response.data.message)
@@ -69,11 +68,10 @@ export function userBlogsApi (navigate, token) {
         dispatch(setLoading(true))
         try {
             const response = await apiConnector("GET", USERBLOGS_API, {},{
-                "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${token}`,
               })
 
-            console.log("Response obtained from userBlogs api", response.data.userBlogs);
+            // console.log("Response obtained from userBlogs api", response.data.userBlogs);
 
             if (!response.data.success){
                 throw new Error(response.data.message)
@@ -99,11 +97,10 @@ export function updateBlogApi (title, description, category, tags, blogId, navig
         dispatch(setLoading(true))
         try {
             const response = await apiConnector("PUT", UPDATEBLOG_API, {title, description, category, tags, blogId,},{
-                "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${token}`,
               })
 
-            console.log("Response obtained from createBlog api", response);
+            // console.log("Response obtained from createBlog api", response);
 
             if (!response.data.success){
                 throw new Error(response.data.message)
@@ -130,13 +127,12 @@ export function deleteBlogApi (blogId, navigate, token) {
         const toastId = toast.loading("Loading")
         dispatch(setLoading(true))
         try {
-            console.log("blogId in deleteblog api", blogId);
+            // console.log("blogId in deleteblog api", blogId);
             const response = await apiConnector("POST", DELETEBLOG_API, {blogId, },{
-                "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${token}`,
               })
 
-            console.log("Response obtained from deleteBlog api", response);
+            // console.log("Response obtained from deleteBlog api", response);
 
             if (!response.data.success){
                 throw new Error(response.data.message)

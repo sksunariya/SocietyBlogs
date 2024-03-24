@@ -10,7 +10,6 @@ const userRoutes = require('./routes/User');
 const blogRoutes = require('./routes/Blog');
 
 
-
 // MIDDLEWARES
 app.use(express.json());
 app.use(cookieParser());
@@ -36,4 +35,14 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running at port number ${PORT}.`)
+
 })
+
+
+
+app.get("/", (req, res) => {
+	return res.json({
+		success:true,
+		message:'Server is running....'
+	});
+});

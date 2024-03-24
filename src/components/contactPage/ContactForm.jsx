@@ -16,12 +16,12 @@ const ContactCreater = () => {
     }
 
     const submitContactForm = async (data) => {
-        console.log("Form Data - ", data)
+        // console.log("Form Data - ", data)
         const toastId = toast.loading("Sending Query.");
         try {
             setLoading(true)
             const res = await apiConnector("POST", endpoints.CONTACT_US_API, data)
-            console.log("Email Res - ", res)
+            // console.log("Email Res - ", res)
             setLoading(false)
             if (!res.data.success) {
                 toast.error("Query not sent.");

@@ -60,7 +60,7 @@ function VerifyEmail() {
 
             <div className="mt-6 flex justify-end">
 
-              <div className="flex items-center text-[#47A5C5] gap-x-2"
+              <div className="flex cursor-pointer items-center text-[#47A5C5] gap-x-2"
                 onClick={() => dispatch(sendOtp(signupData.email))}
               >
                 <RxCountdownTimer />

@@ -6,11 +6,15 @@ const User = require('../models/User');
 
 exports.createBlog = async (req, res) => {
     try {
+        console.log("createBlog controller req is: " + req.body);
         // fetch details of blog from req
         const {title, description, category, tags} = req.body;
 
         // fetch the details of blog creater
         const userId = req.user.id;
+        console.log(userId);
+
+        console.log("IN createBlog controller: " + 'title, description, category, tags: ' + title, description, category, tags)
 
         // check for validation
         if (!title || !description || !category) {
@@ -77,7 +81,7 @@ exports.createBlog = async (req, res) => {
 exports.updateBlog = async (req, res) => {
     try {
         // fetch details of blog from req
-        const {title, description, category, blogId} = req.body;
+        const {title, description, category, tags, blogId} = req.body;
 
         // fetch the details of blog creater
         const userId = req.user.id;
@@ -106,12 +110,15 @@ exports.updateBlog = async (req, res) => {
             })
         }
 
+        const tagArray = tags.split(' ');
+
         // update Blog
         const updatedBlog = await Blog.findByIdAndUpdate(blogDetails._id,
                                                     {
                                                         title,
                                                         description,
                                                         category,
+                                                        tags: tagArray,
                                                         createdAt: Date.now(),
                                                         creater: userDetails._id,
                                                     },

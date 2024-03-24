@@ -76,6 +76,7 @@ const Signupform = () => {
           <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>First Name <sup className='text-red-800 scale-150'>*</sup></h2>
             <input 
               className='bg-gray-700 focus:outline-none text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+              required
               type='text'
               name='firstName'
               placeholder='Enter first name'
@@ -88,6 +89,7 @@ const Signupform = () => {
           <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>Last Name <sup className='text-red-800 scale-150'>*</sup></h2>
             <input 
               className='bg-gray-700 focus:outline-none text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+              required
               type='text'
               name='lastName'
               placeholder='Enter last name'
@@ -101,6 +103,7 @@ const Signupform = () => {
           <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>Email Address <sup className='text-red-800 scale-150'>*</sup></h2>
           <input 
             className='bg-gray-700 focus:outline-none text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+            required
             type='email'
             name='email'
             placeholder='Enter email address'
@@ -114,6 +117,7 @@ const Signupform = () => {
             <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>Create Password <sup className='text-red-800 scale-150'>*</sup></h2>
             <input 
               className='bg-gray-700 focus:outline-none text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+              required
               type= {showPassword ? ("text") : ("password")}
               name='password'
               placeholder='Enter Password'
@@ -130,6 +134,7 @@ const Signupform = () => {
             <h2 className='text-[0.875rem] text-white mb-1 leading-[1.375rem]'>Confirm Password <sup className='text-red-800 scale-150'>*</sup></h2>
             <input
               className='bg-gray-700 focus:outline-none text-white w-full bg-opacity-60 p-[6px] border-b-[0.05rem] border-opacity-25 rounded-lg'
+              required
               type= {showConfirmPassword ? ("text") : ("password")} 
               name='confirmPass'
               placeholder='Confirm password'
